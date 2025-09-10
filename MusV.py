@@ -75,11 +75,15 @@ def text_command(message):
         for i in range(i,len(temp_li),5):
             major_li1.append(temp_li[i:i+5])
         print(len(major_li1))
-        for i in major_li1[0]:
-            merkuri.add(i)
-        next_but=types.InlineKeyboardButton(text="Next",callback_data="/next")
-        merkuri.add(next_but)
-        bot.send_message(message.chat.id,"Мы нашли "+str(len(track_Name))+" треков",reply_markup=merkuri)
+        try:
+            for i in major_li1[0]:
+                merkuri.add(i)
+            next_but=types.InlineKeyboardButton(text="Next",callback_data="/next")
+            merkuri.add(next_but)
+            bot.send_message(message.chat.id,"Мы нашли "+str(len(track_Name))+" треков",reply_markup=merkuri)
+        except IndexError:
+            bot.send_message(message.chat.id,"Ой произошла ошибка повтрите запрос")
+            print('ошибка обработана')
 @bot.callback_query_handler(func=lambda call: True)
 def bot_butn_clck(call):
     global pageg
