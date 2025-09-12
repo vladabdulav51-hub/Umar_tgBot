@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from telebot import types
 import time
 #from telebot.types import InlineKeyboardButton , InlineKeyboardMarkup
-bot=telebot.TeleBot('8307695751:AAFvefzMesROc0_NyKeV07W8zqQ61hgsiow')
+bot=telebot.TeleBot('Token')
 pageg=1
 pag=[]
 name_tre=[]
